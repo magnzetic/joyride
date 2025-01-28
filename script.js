@@ -419,6 +419,8 @@ const story = {
       Makhluk mengenaskan itu hanya bisa meraung-raung di bawah kanopi dedaunan yang lebat, dicambuk oleh malu dan rasa bersalah. Kedua tangannya bergetar, mendekap kertas licin seukuran punggung tangan di dadanya. Sedikit tidak tahu malu, ia berharap bahwa dengan melakukan itu, dukanya yang tulus dapat mencapai ketiga orang di foto tersebut.
       
       Lagi-lagi, sang makhluk berlindung di balik angan agar dapat terbebas dari siksaan.
+
+      <center><b>Ending 4</b></center>
       `,
     },
     A2: {
@@ -882,6 +884,8 @@ const story = {
         “Kau tidak pandai berbohong.” Ia membalikkan badan dan membawa figurnya semakin menjauh. Setiap langkah yang diambil semakin membuatku kesulitan bernapas. “Aku akan kembali lagi besok.”
         
         Hanya dengan itu, sosoknya menghilang. Seperti hidup dalam lingkaran, lagi-lagi aku dibiarkan tenggelam di dalam kesunyian yang terlampau lantang.
+        
+        <center><b>Ending 5</b></center>
         `,
       },
     A2b: {
@@ -1086,11 +1090,13 @@ const story = {
         Begitu membuka mata lagi, yang kulihat adalah paruh besar. Ini kah yang terakhir dilihat oleh korban-korbannya? Aku mengerti mengapa mereka tidak berteriak. Pantulanku terlalu menawan dalam warna emas yang mengkilap.
         
         “Selamat makan, Satoru.”
+
+        <center><b>Ending 1</b></center>
         `,
       },
       A2bb: {
         text: `
-        Aku menatap salju di bawah kaki, seolah akan menemukan sesuatu yang menarik. Melihat gesturku demikian, Satoru meraih kedua tanganku ke dalam genggamannya. Aku mendongak dan mendapati pria itu tengah tersenyum lebar.
+        Melihat gesturku demikian, Satoru meraih kedua tanganku ke dalam genggamannya. Aku mendongak dan mendapati pria itu tengah tersenyum lebar.
         
         “Kau tidak pernah benar-benar ingin mati, Nona.”
         
@@ -1141,13 +1147,13 @@ const story = {
         “Aku lebih memilih apabila si tokoh utama diberi kesempatan bertemu kembali dengan si penjaga hutan tersebut.” Kedua alisku terangkat. Aku mengamati wajahnya dan tersentak begitu melihat sekelibat biru menari di mata cokelat sang pria. “Kurasa si penjaga pun <i>rindu</i> dengannya.”
         
         Menahan senyum, bibirku bergetar hebat. Oh, monster sialan ini.
+
+        <center><b>Ending 2</b></center>
                 
         `,
       },
     B: {
         text: `
-        Pulpen di genggamanku terasa seperti dilapisi es. Jemari kakiku bergerak-gerak gelisah di atas karpet. Seketika aku dihadapkan pada dua pilihan; untuk bertindak seperti pengecut dan berdiam di kamar atau melegakan kekhawatiranku dengan mencari Satoru di luar kamar.
-          
         Belajar dari film-film horor yang kutonton, tidak melakukan apapun adalah langkah paling bijak. Aku bisa saja mengenyahkan semua asumsi liar, kembali menarik selimut, dan tidur. Kami tidak sedekat itu dan apapun yang terjadi di luar sana bukan urusanku.
 
         <i>Mungkin pria itu hanya ingin mencari udara. Mungkin ia sedang dihabisi di luar sana. Mungkin seharusnya aku tidak terlalu peduli.</i>
@@ -1189,30 +1195,29 @@ const story = {
         Maka dari itu, ia hanya tersenyum lebar dan bertanya dengan nada ceria, “untuk dua orang?” “Ya. Satu kasur. Bisa kah agak cepat? Kekasihku terlalu banyak minum semalam.”
         
         “Oh, tentu saja!” sebuah kunci kamar dengan gantungan berisi nomor digeser ke depan di atas konter. “Semoga tidurmu nyenyak!”        
+        
+        <center><b>Ending 3</b></center>
         `,
       },
   };
   
-  let fontSize = 16; // Default font size
+  let fontSize = 16;
   
   function choose(path) {
-    if (!story[path]) return; // Ensure the path exists
+    if (!story[path]) return;
 
     const storyContainer = document.getElementById("story-container");
     const nextStory = story[path];
 
-    // Disable all buttons in the current chapter
     const currentChapter = storyContainer.lastElementChild;
     if (currentChapter) {
         const buttons = currentChapter.querySelectorAll("button");
         buttons.forEach(button => button.disabled = true);
     }
 
-    // Create a new chapter element
     const chapterDiv = document.createElement("div");
     chapterDiv.classList.add("chapter");
 
-    // Add narration text with proper newlines
     const storyText = document.createElement("p");
     const formattedText = nextStory.text
         .trim()
@@ -1222,7 +1227,6 @@ const story = {
     storyText.style.fontSize = fontSize + 'px';
     chapterDiv.appendChild(storyText);
 
-    // Check if the chapter has choices
     if (nextStory.choices && Object.keys(nextStory.choices).length > 0) {
         const choicesDiv = document.createElement("div");
         choicesDiv.classList.add("choices");
@@ -1236,22 +1240,18 @@ const story = {
 
         chapterDiv.appendChild(choicesDiv);
     } else {
-        // If no choices, indicate the end of the story
+
         const endMessage = document.createElement("p");
 
-        // Add a paragraph to the body after the last chapter
         addFinalParagraph("Website development by: @shiuyalan on twitter.");
     }
 
-    // Append the chapter to the container
     storyContainer.appendChild(chapterDiv);
 
-    // Trigger the "show" class to start the reveal animation
     setTimeout(() => {
         chapterDiv.classList.add("show");
     }, 50);
 
-    // Scroll to the newly added chapter smoothly
     chapterDiv.scrollIntoView({ behavior: 'smooth', block: 'top' });
 }
 
@@ -1268,25 +1268,22 @@ function addFinalParagraph(text) {
     const fontSizeDecrease = document.getElementById('font-size-decrease');
     const body = document.body;
     const modeToggle = document.getElementById('mode-toggle');
-  
-    // Toggle Dark/Light Mode
+
     darkModeToggle.addEventListener('click', () => {
       body.classList.toggle('dark-mode');
       body.classList.toggle('light-mode');
-      darkModeToggle.textContent = body.classList.contains('dark-mode') ? '🌙' : '🌞'; // Switch icon
+      darkModeToggle.textContent = body.classList.contains('dark-mode') ? '🌙' : '🌞';
     });
-  
-    // Increase Font Size
+
     fontSizeIncrease.addEventListener('click', () => {
-      if (fontSize < 24) { // Set a maximum font size limit
+      if (fontSize < 24) {
         fontSize += 2;
         updateFontSize();
       }
     });
   
-    // Decrease Font Size
     fontSizeDecrease.addEventListener('click', () => {
-      if (fontSize > 12) { // Set a minimum font size limit
+      if (fontSize > 12) {
         fontSize -= 2;
         updateFontSize();
       }
@@ -1297,20 +1294,18 @@ function addFinalParagraph(text) {
         paragraph.style.fontSize = fontSize + 'px';
       });
     }
-  
-    // Initialize with default light mode and font size
+
     body.classList.add('light-mode');
     updateFontSize();
   
-    // Add scroll event listener to toggle transparency
     window.addEventListener('scroll', function() {
       const scrollY = window.scrollY || window.pageYOffset;
-      const triggerPoint = 200; // Scroll position to trigger transparency
+      const triggerPoint = 200;
   
       if (scrollY > triggerPoint) {
-        modeToggle.classList.add('transparent'); // Make buttons transparent
+        modeToggle.classList.add('transparent');
       } else {
-        modeToggle.classList.remove('transparent'); // Restore full opacity
+        modeToggle.classList.remove('transparent');
       }
     });
   });
@@ -1320,53 +1315,68 @@ function addFinalParagraph(text) {
     const usernameDisplay = document.getElementById('username-display');
     const mainMenu = document.getElementById('main-menu');
     
-    const usernames = ['Kichuunee', 'shiuyalan']; // Add the usernames here
+    const usernames = ['Kichuunee', 'shiuyalan'];
     let currentIndex = 0;
-    let flickerDuration = 1000; // 1 second for each flicker
-    let displayDuration = 4800; // Total time for loading screen
-    
-    // Function to alternate the usernames with flickering effect
+    let flickerDuration = 1000;
+    let displayDuration = 4800;
+
     let usernameDisplayInterval = setInterval(() => {
       usernameDisplay.textContent = usernames[currentIndex];
-      
-      // Fade in/out effect for the username display
+
       usernameDisplay.style.opacity = 1;
       setTimeout(() => {
         usernameDisplay.style.opacity = 0;
-      }, flickerDuration / 2); // Fade out after half the interval
+      }, flickerDuration / 2);
       
-      currentIndex = (currentIndex + 1) % usernames.length; // Toggle between usernames
-    }, flickerDuration); // Change the username every second
-    
-    // After the display duration, transition from loading screen to main menu
+      currentIndex = (currentIndex + 1) % usernames.length;
+    }, flickerDuration);
+
     setTimeout(() => {
-      clearInterval(usernameDisplayInterval); // Stop alternating usernames
-  
-      // Apply fade-out to the loading screen
+      clearInterval(usernameDisplayInterval);
+
       loadingScreen.classList.add('fade-out');
-      
-      // After the fade-out animation, hide loading screen and show the main menu
+
       setTimeout(() => {
-        loadingScreen.style.display = 'none'; // Hide loading screen
-        mainMenu.style.display = 'block'; // Show main menu
-        mainMenu.classList.add('fade-in'); // Apply fade-in to the main menu
-      }, 500); // Match this timeout to the fade-out animation duration
+        loadingScreen.style.display = 'none';
+        mainMenu.style.display = 'block';
+        mainMenu.classList.add('fade-in');
+      }, 500);
     }, displayDuration);
   });
 
   document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("to-preface").addEventListener("click", function () {
-      // Add sliding-out class to container-0
+    document.getElementById("to-syn").addEventListener("click", function () {
+
       const container0 = document.getElementById("container-0");
       const container2 = document.getElementById("container-3");
       container0.classList.add('slide-out');
-      // When the animation ends, hide container-0 and show container-2
+
       container0.addEventListener(
         "animationend",
         function () {
           container0.style.display = "none";
           container2.style.display = "block";
-          // Add sliding-in class to container-2
+
+          container2.classList.add('slide-left');
+        },
+        { once: true }
+      );
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("to-preface").addEventListener("click", function () {
+
+      const container0 = document.getElementById("container-3");
+      const container2 = document.getElementById("container-6");
+      container0.classList.add('slide-out');
+
+      container0.addEventListener(
+        "animationend",
+        function () {
+          container0.style.display = "none";
+          container2.style.display = "block";
+
           container2.classList.add('slide-left');
         },
         { once: true }
@@ -1376,17 +1386,17 @@ function addFinalParagraph(text) {
 
   document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("to-disclaimer").addEventListener("click", function () {
-      // Add sliding-out class to container-0
-      const container0 = document.getElementById("container-3");
+
+      const container0 = document.getElementById("container-6");
       const container2 = document.getElementById("container-4");
       container0.classList.add('slide-out');
-      // When the animation ends, hide container-0 and show container-2
+
       container0.addEventListener(
         "animationend",
         function () {
           container0.style.display = "none";
           container2.style.display = "block";
-          // Add sliding-in class to container-2
+
           container2.classList.add('slide-left');
         },
         { once: true }
@@ -1396,17 +1406,17 @@ function addFinalParagraph(text) {
 
   document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("to-warning").addEventListener("click", function () {
-      // Add sliding-out class to container-0
+
       const container0 = document.getElementById("container-4");
       const container2 = document.getElementById("container-5");
       container0.classList.add('slide-out');
-      // When the animation ends, hide container-0 and show container-2
+
       container0.addEventListener(
         "animationend",
         function () {
           container0.style.display = "none";
           container2.style.display = "block";
-          // Add sliding-in class to container-2
+
           container2.classList.add('slide-left');
         },
         { once: true }
@@ -1416,17 +1426,17 @@ function addFinalParagraph(text) {
 
   document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("to-ins").addEventListener("click", function () {
-      // Add sliding-out class to container-0
+
       const container0 = document.getElementById("container-5");
       const container2 = document.getElementById("container-2");
       container0.classList.add('slide-out');
-      // When the animation ends, hide container-0 and show container-2
+
       container0.addEventListener(
         "animationend",
         function () {
           container0.style.display = "none";
           container2.style.display = "block";
-          // Add sliding-in class to container-2
+
           container2.classList.add('slide-left');
         },
         { once: true }
@@ -1442,8 +1452,7 @@ function addFinalParagraph(text) {
     const startButton = document.getElementById('start-game');
   
     let currentContainer = 1;
-  
-    // Handle the transition between the containers
+
     nextPageButton.addEventListener('click', () => {
       if (currentContainer === 1) {
         container1.classList.add('slide-out');
@@ -1453,16 +1462,12 @@ function addFinalParagraph(text) {
           container1.style.display = 'none';
           container2.style.display = 'block';
           currentContainer = 2;
-        }, 500); // Match this to the animation duration
+        }, 500);
       }
     });
-  
-    // Handle the start button
+
     startButton.addEventListener('click', () => {
-      mainMenu.style.display = 'none'; // Hide the main menu
-      app.style.display = 'block'; // Show the main app content
-      // Add any further logic for starting your application here
+      mainMenu.style.display = 'none';
+      app.style.display = 'block';
     });
   });
-  
-  
