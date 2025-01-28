@@ -1,4 +1,3 @@
-/* General styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #2e2e2e;
@@ -8,25 +7,23 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    position: relative; /* To position the buttons correctly */
+    position: relative;
 }
 
-/* Style for username display */
 #username-display-container {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 1.7em; /* Font size of username */
+    font-size: 1.7em;
     font-weight: bold;
     font-family: 'Built Titling', sans-serif;
-    z-index: 2; /* Make sure username is on top of blobs */
+    z-index: 2;
 }
 
-/* Container for loading screen */
 #loading-screen {
-    position: fixed; /* Fixed position to take full screen */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -37,43 +34,39 @@ body {
     flex-direction: column;
     text-align: center;
     
-    /* Gradient background: Upper left to bottom right */
     background: linear-gradient(45deg, #444B51, #AEB1BA);
     
-    /* Set text color to black for loading screen */
     color: #000000;
 }
 
-/* Second blob with custom SVG */
-/* Keyframes for the blob scaling animation */
 @keyframes blobPulse {
     0% {
-        transform: translateX(-50%) scale(1); /* Start at normal size */
+        transform: translateX(-50%) scale(1); 
     }
     25% {
-        transform: translateX(-50%) scale(1.2); /* Grow slightly bigger */
+        transform: translateX(-50%) scale(1.2);
     }
     50% {
-        transform: translateX(-50%) scale(1); /* Back to normal size */
+        transform: translateX(-50%) scale(1); 
     }
     75% {
-        transform: translateX(-50%) scale(0.8); /* Shrink slightly smaller */
+        transform: translateX(-50%) scale(0.8);
     }
     100% {
-        transform: translateX(-50%) scale(1); /* Back to normal size */
+        transform: translateX(-50%) scale(1);
     }
 }
 
 #blob-top {
     position: absolute;
-    top: 28%; /* Adjust the top position */
+    top: 28%;
     left: 50%;
     opacity: 0.8;
     transform: translateX(-50%);
     width: 300px;
     height: 300px;
     z-index: 0;
-    animation: blobPulse 4s infinite ease-in-out; /* Apply animation */
+    animation: blobPulse 4s infinite ease-in-out;
 }
 
 #blob-top svg {
@@ -81,13 +74,11 @@ body {
     height: 100%;
 }
 
-/* Username flickering effect */
 .username {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
 
-/* Add fade-out animation for loading screen */
 @keyframes fadeOut {
     0% {
         opacity: 1;
@@ -102,15 +93,13 @@ body {
     }
 }
 
-/* Apply animation to the loading screen */
 #loading-screen.fade-out {
     animation: fadeOut 0.3s ease-out;
-    pointer-events: none; /* Prevent interactions while fading out */
-    opacity: 0; /* Ensure it's hidden after the animation */
+    pointer-events: none; 
+    opacity: 0; 
     visibility: hidden;
 }
 
-/* Fade-in animation for the main menu */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -129,7 +118,6 @@ body {
     visibility: visible;
 }
 
-/* Main Menu Styles */
 #main-menu {
     position: fixed;
     top: 0;
@@ -148,21 +136,21 @@ body {
 
 #container-1 {
     backdrop-filter: blur(11.1px);
-    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
-    border-radius: 10px; /* Optional rounded corners */
-    padding: 30px 40px; /* Add some padding for spacing */
-    max-width: 900px; /* Optional: Set a max width */
+    background-color: rgba(255, 255, 255, 0.3); 
+    border-radius: 10px; 
+    padding: 30px 40px; 
+    max-width: 900px; 
     height: 80%;
-    width: 70%; /* Ensure it takes full width until max-width */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optional shadow for visibility */
+    width: 70%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertically center the content */
-    align-items: center; /* Horizontally center the content */
-    position: absolute; /* Change to absolute positioning */
-    top: 50%; /* Move to the center vertically */
-    left: 50%; /* Move to the center horizontally */
-    transform: translate(-50%, -50%); /* Correct the position by translating back */
+    justify-content: center; 
+    align-items: center; 
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .moodboard-image {
@@ -172,7 +160,6 @@ body {
     border-radius: 5px;
 }
 
-/* Main Menu Title */
 #container-1 h1 {
     font-family: "Seashore"; 
     text-align: center;
@@ -183,17 +170,15 @@ body {
     margin-top: 0px;
 }
 
-/* Main Menu Paragraph */
 #container-1 p {
     text-align: justify;
     font-size: 1.2em;
-    color: #ffffff; /* Ensure text is readable on dark background */
+    color: #ffffff;
     margin-bottom: 30px;
     line-height: 1.6;
     font-family: 'Times New Roman', serif;
 }
 
-/* Custom Font for Main Menu Button */
 @font-face {
     font-family: 'CustomButtonFont';
     src: url('mulai.otf') format('opentype');
@@ -201,7 +186,6 @@ body {
     font-style: normal;
 }
 
-/* Main Menu Button Styles */
 #container-1 button {
     padding: 15px 30px;
     background-color: #444B51;
@@ -212,32 +196,27 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 30px;
-    font-family: 'CustomButtonFont', sans-serif; /* Apply custom font */
+    font-family: 'CustomButtonFont', sans-serif;
 }
 
-/* Button Hover Effect */
 #container-1 button:hover {
     background-color: #506D8F;
 }
 
-/* Button Active Effect */
 #container-1 button:active {
     background-color: #004080;
 }
 
-/* Button Disabled Effect */
 #container-1 button:disabled {
     background-color: #4e4e4e;
     cursor: not-allowed;
 }
 
-/* General styles for hidden elements */
 .hidden {
     display: none;
     visibility: hidden;
 }
 
-/* Styles for the second main menu */
 #container-2 {
     width: 70%;
     background-color: rgba(0, 0, 0, 0.3);
@@ -247,13 +226,13 @@ body {
     max-width: 60%;
     max-height: 80%;
     text-align: center;
-    justify-content: center; /* Vertically center the content */
-    align-items: center; /* Horizontally center the content */
+    justify-content: center;
+    align-items: center;
     display: flex;
-    position: absolute; /* Change to absolute positioning */
-    top: 50%; /* Move to the center vertically */
-    left: 50%; /* Move to the center horizontally */
-    transform: translate(-50%, -50%); /* Correct the position by translating back */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #container-2 h1 {
@@ -316,12 +295,11 @@ body {
     }
   }
 
-  /* Spotify button styles */
 .spotify-button {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    background-color: rgba(0, 0, 0, 0.6);
     color: white;
     text-decoration: none;
     font-size: 16px;
@@ -332,15 +310,13 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   }
   
-  /* Hover effect */
   .spotify-button:hover {
     background-color: rgba(0, 0, 0, 0.8);
     transform: scale(1.05);
   }
   
-  /* Add focus outline for accessibility */
   .spotify-button:focus {
-    outline: 2px solid #1DB954; /* Spotify green */
+    outline: 2px solid #1DB954;
     outline-offset: 2px;
   }  
 
@@ -353,13 +329,13 @@ body {
     max-width: 60%;
     max-height: 80%;
     text-align: center;
-    justify-content: center; /* Vertically center the content */
-    align-items: center; /* Horizontally center the content */
+    justify-content: center; 
+    align-items: center;
     display: flex;
-    position: absolute; /* Change to absolute positioning */
-    top: 50%; /* Move to the center vertically */
-    left: 50%; /* Move to the center horizontally */
-    transform: translate(-50%, -50%); /* Correct the position by translating back */
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #container-0 h1 {
@@ -454,13 +430,13 @@ body {
     max-width: 60%;
     max-height: 80%;
     text-align: center;
-    justify-content: center; /* Vertically center the content */
-    align-items: center; /* Horizontally center the content */
+    justify-content: center;
+    align-items: center;
     display: flex;
-    position: absolute; /* Change to absolute positioning */
-    top: 50%; /* Move to the center vertically */
-    left: 50%; /* Move to the center horizontally */
-    transform: translate(-50%, -50%); /* Correct the position by translating back */
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
 }
 
 #container-3 h1 {
@@ -555,13 +531,13 @@ body {
     max-width: 60%;
     max-height: 80%;
     text-align: center;
-    justify-content: center; /* Vertically center the content */
-    align-items: center; /* Horizontally center the content */
+    justify-content: center;
+    align-items: center; 
     display: flex;
-    position: absolute; /* Change to absolute positioning */
-    top: 50%; /* Move to the center vertically */
-    left: 50%; /* Move to the center horizontally */
-    transform: translate(-50%, -50%); /* Correct the position by translating back */
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
 }
 
 #container-4 h1 {
@@ -644,13 +620,13 @@ body {
     max-width: 60%;
     max-height: 80%;
     text-align: center;
-    justify-content: center; /* Vertically center the content */
-    align-items: center; /* Horizontally center the content */
+    justify-content: center;
+    align-items: center;
     display: flex;
-    position: absolute; /* Change to absolute positioning */
-    top: 50%; /* Move to the center vertically */
-    left: 50%; /* Move to the center horizontally */
-    transform: translate(-50%, -50%); /* Correct the position by translating back */
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
 }
 
 #container-5 h1 {
@@ -736,12 +712,89 @@ body {
     }
   }
 
-/* App content */
+  #container-6 {
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 40px 60px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    max-width: 60%;
+    max-height: 80%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+#container-6 h1 {
+    font-family: "Seashore";
+    font-size: 4em;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+#container-6 p {
+    font-family: 'Times New Roman', serif;
+    font-size: 1em;
+    color: #ffffff;
+    margin-bottom: 20px;
+    line-height: 1;
+    text-align: center;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+#container-6 button {
+    padding: 15px 30px;
+    background-color: #1E3147;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'CustomButtonFont', sans-serif;
+}
+
+#container-6 button:hover {
+    background-color: #444B51;
+}
+
+.slide-left {
+    animation: 1s slide-left;
+  }
+  @keyframes slide-left {
+    from {
+      margin-left: 100%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+
+  .slide-out {
+    animation: 1s slide-out;
+  }
+  @keyframes slide-out {
+    from {
+      margin-left: 0%;
+    }
+    to {
+      margin-left: -100%;
+    }
+  }
+
 #app {
     text-align: center;
     max-width: 600px;
     position: relative;
-    padding-top: 40px; /* Add space to avoid overlap with buttons */
+    padding-top: 40px;
 }
 
 h1 {
@@ -749,17 +802,15 @@ h1 {
     font-size: 50px;
 }
 
-/* Mode toggle buttons */
 #mode-toggle {
-    position: fixed;  /* Fixed position to stay at the top-right */
+    position: fixed;
     top: 20px;
     right: 20px;
     display: flex;
     gap: 10px;
-    z-index: 10; /* Ensure the buttons are always above other content */
+    z-index: 10;
 }
 
-/* Button styles */
 button {
     padding: 10px 20px;
     margin: 10px;
@@ -780,20 +831,17 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* Choices section */
 .choices {
     margin-top: 10px;
 }
 
-/* Paragraph styles in the chapter */
 .chapter p {
     text-align: justify;
     line-height: 1.6;
-    font-size: 16px; /* Default font size */
+    font-size: 16px;
     font-family: 'Times New Roman', serif;
 }
 
-/* Dark Mode Styles */
 body.dark-mode {
     background-color: #202326;
     color: #F1EEE8;
@@ -803,7 +851,6 @@ body.dark-mode {
     background: #202326;
 }
 
-/* Light Mode Styles */
 body.light-mode {
     background-color: #F1EEE8;
     color: #000000;
@@ -813,7 +860,6 @@ body.light-mode {
     background: #F1EEE8;
 }
 
-/* Transition for revealing and bump effect */
 @keyframes revealAndBump {
     0% {
         transform: scale(0.8);
@@ -829,27 +875,24 @@ body.light-mode {
     }
 }
 
-/* Chapter reveal animation */
 .chapter {
-    background: rgba(182, 182, 182, 0.17); /* Semi-transparent black background */
-    border-radius: 10px; /* Optional: adds rounded corners */
-    padding: 20px; /* Add some padding inside the container */
-    margin: 10px 0; /* Optional: space between the containers */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optional: adds a shadow for better visibility */
-    font-family: 'Times New Roman', serif; /* Keep the same font */
-    animation: revealAndBump 0.6s ease-out; /* Animation for reveal */
+    background: rgba(182, 182, 182, 0.17); 
+    border-radius: 10px; 
+    padding: 20px; 
+    margin: 10px 0; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    font-family: 'Times New Roman', serif;
+    animation: revealAndBump 0.6s ease-out; 
     opacity: 1;
     transform: scale(1);
     transition: opacity 0.3s, transform 0.3s;
 }
 
-/* Show class for active chapter */
 .chapter.show {
     opacity: 1;
     transform: scale(1);
 }
 
-/* Smooth scrolling */
 html {
     scroll-behavior: smooth;
     align-items: center;
@@ -860,7 +903,6 @@ html {
     height: auto;
 }
 
-/* Fixed position for the mode toggle */
 #mode-toggle {
     position: fixed;
     top: 20px;
@@ -870,7 +912,6 @@ html {
     z-index: 10;
 }
 
-/* Mode toggle button styles */
 #mode-toggle button {
     padding: 10px 20px;
     margin: 10px;
@@ -883,40 +924,34 @@ html {
     transition: opacity 0.3s ease, background-color 0.3s ease;
 }
 
-/* Mode toggle span (font size label) */
 #mode-toggle span {
-    font-size: 16px; /* Match the font size to the buttons */
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 10px;
     font-weight: bold;
-    user-select: none; /* Disable text selection */
-    transition: color 0.3s ease; /* Smooth color transition */
+    user-select: none; 
+    transition: color 0.3s ease;
 }
 
-/* Dark Mode for Mode Toggle */
 body.dark-mode #mode-toggle span {
-    color: #fff; /* White font for dark mode */
+    color: #fff;
 }
 
-/* Light Mode for Mode Toggle */
 body.light-mode #mode-toggle span {
-    color: #000; /* Black font for light mode */
+    color: #000;
 }
 
-/* Transparent buttons when scrolling */
 #mode-toggle.transparent button {
     opacity: 0.3;
     background-color: rgba(0, 123, 255, 0.2);
 }
 
-/* Hide the font size label when scrolling */
 #mode-toggle.transparent span {
-    opacity: 0; /* Hide the Aa label */
+    opacity: 0;
 }
 
-/* Button hover effects */
 #mode-toggle button:hover {
     background-color: #91C1F8;
 }
@@ -928,11 +963,11 @@ body.light-mode #mode-toggle span {
 
 .final-paragraph {
     position: fixed;
-    bottom: 5px; /* Distance from the bottom of the page */
+    bottom: 5px;
     font-size: 14px;
     text-align: center;
     color: #444;
-    background: rgba(255, 255, 255, 0.8); /* Slight background for readability */
+    background: rgba(255, 255, 255, 0.8);
     padding: 5px 5px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
