@@ -998,7 +998,7 @@ const story = {
         
         Menurutku, itu cukup untuk membuat sinyal bahaya di sekujur badanku meredup.
         
-        <center***</center>
+        <center>***</center>
         
         “Sekarang apa?”
         
