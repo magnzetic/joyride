@@ -1473,3 +1473,5 @@ function addFinalParagraph(text) {
       app.style.display = 'block';
     });
   });
+  
+  
