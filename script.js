@@ -1192,7 +1192,9 @@ const story = {
         
         Ia baru beberapa lama bekerja sebagai penjaga motel. Namun, ia tahu—lebih dari siapapun—bahwa bertanya hal-hal tidak penting hanya akan membahayakan nyawanya.
         
-        Maka dari itu, ia hanya tersenyum lebar dan bertanya dengan nada ceria, “untuk dua orang?” “Ya. Satu kasur. Bisa kah agak cepat? Kekasihku terlalu banyak minum semalam.”
+        Maka dari itu, ia hanya tersenyum lebar dan bertanya dengan nada ceria, “untuk dua orang?”
+        
+        “Ya. Satu kasur. Bisa kah agak cepat? Kekasihku terlalu banyak minum semalam.”
         
         “Oh, tentu saja!” sebuah kunci kamar dengan gantungan berisi nomor digeser ke depan di atas konter. “Semoga tidurmu nyenyak!”        
         
