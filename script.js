@@ -1316,6 +1316,7 @@ function addFinalParagraph(text) {
     const loadingScreen = document.getElementById('loading-screen');
     const usernameDisplay = document.getElementById('username-display');
     const mainMenu = document.getElementById('main-menu');
+    const cont1 = document.getElementById('container-1');
     
     const usernames = ['Kichuunee', 'shiuyalan'];
     let currentIndex = 0;
@@ -1344,129 +1345,52 @@ function addFinalParagraph(text) {
         mainMenu.classList.add('fade-in');
       }, 500);
     }, displayDuration);
+    setTimeout(() => {
+      mainMenu.style.display = 'none';
+      cont1.style.display = 'block';
+      mainMenu.classList.add('fade-in');
+    }, 500);
   });
 
-  document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("to-syn").addEventListener("click", function () {
+  document.addEventListener("DOMContentLoaded", () => {
+    // Function to create intersection observer
+    function createObserver(element, threshold = 0.2) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+                }
+            });
+        }, { threshold: threshold });
+        observer.observe(element);
+    }
 
-      const container0 = document.getElementById("container-0");
-      const container2 = document.getElementById("container-3");
-      container0.classList.add('slide-out');
+    // Select elements
+    const container1 = document.querySelector("#container-1");
+    const container2 = document.querySelector("#container-2");
+    const container3 = document.querySelector("#container-3");
+    const container4 = document.querySelector("#container-4");
+    const container5 = document.querySelector("#container-5");
+    const container6 = document.querySelector("#container-6");
+    const container0 = document.querySelector("#container-0");
 
-      container0.addEventListener(
-        "animationend",
-        function () {
-          container0.style.display = "none";
-          container2.style.display = "block";
+    // Apply observers
+    createObserver(container1);
+    createObserver(container0);
+    createObserver(container3);
+    createObserver(container6);
+    createObserver(container4);
+    createObserver(container5);
+    createObserver(container2);
+});
 
-          container2.classList.add('slide-left');
-        },
-        { once: true }
-      );
-    });
-  });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("to-preface").addEventListener("click", function () {
-
-      const container0 = document.getElementById("container-3");
-      const container2 = document.getElementById("container-6");
-      container0.classList.add('slide-out');
-
-      container0.addEventListener(
-        "animationend",
-        function () {
-          container0.style.display = "none";
-          container2.style.display = "block";
-
-          container2.classList.add('slide-left');
-        },
-        { once: true }
-      );
-    });
-  });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("to-disclaimer").addEventListener("click", function () {
-
-      const container0 = document.getElementById("container-6");
-      const container2 = document.getElementById("container-4");
-      container0.classList.add('slide-out');
-
-      container0.addEventListener(
-        "animationend",
-        function () {
-          container0.style.display = "none";
-          container2.style.display = "block";
-
-          container2.classList.add('slide-left');
-        },
-        { once: true }
-      );
-    });
-  });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("to-warning").addEventListener("click", function () {
-
-      const container0 = document.getElementById("container-4");
-      const container2 = document.getElementById("container-5");
-      container0.classList.add('slide-out');
-
-      container0.addEventListener(
-        "animationend",
-        function () {
-          container0.style.display = "none";
-          container2.style.display = "block";
-
-          container2.classList.add('slide-left');
-        },
-        { once: true }
-      );
-    });
-  });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("to-ins").addEventListener("click", function () {
-
-      const container0 = document.getElementById("container-5");
-      const container2 = document.getElementById("container-2");
-      container0.classList.add('slide-out');
-
-      container0.addEventListener(
-        "animationend",
-        function () {
-          container0.style.display = "none";
-          container2.style.display = "block";
-
-          container2.classList.add('slide-left');
-        },
-        { once: true }
-      );
-    });
-  });
 
   document.addEventListener('DOMContentLoaded', function () {
     const mainMenu = document.getElementById('main-menu');
-    const container1 = document.getElementById('container-1');
-    const container2 = document.getElementById('container-0');
-    const nextPageButton = document.getElementById('next-page');
     const startButton = document.getElementById('start-game');
   
     let currentContainer = 1;
-
-    nextPageButton.addEventListener('click', () => {
-      if (currentContainer === 1) {
-        container1.classList.add('slide-out');
-        container2.classList.add('slide-left');
-  
-        setTimeout(() => {
-          container1.style.display = 'none';
-          container2.style.display = 'block';
-          currentContainer = 2;
-        }, 500);
-      }
-    });
 
     startButton.addEventListener('click', () => {
       mainMenu.style.display = 'none';
@@ -1474,4 +1398,19 @@ function addFinalParagraph(text) {
     });
   });
   
-  
+  document.addEventListener("DOMContentLoaded", () => {
+    const scrollIndicator = document.getElementById("scroll-indicator");
+    const lastContainer = document.getElementById("container-2");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                scrollIndicator.style.opacity = "0";
+            } else {
+                scrollIndicator.style.opacity = "1";
+            }
+        });
+    }, { threshold: 0.5 });
+
+    observer.observe(lastContainer);
+});
